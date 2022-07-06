@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: abcde.apple
+Class-Path: mysql-connector-java-8.0.13.jar
+
