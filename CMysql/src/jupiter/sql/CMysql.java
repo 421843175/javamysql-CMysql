@@ -5,8 +5,6 @@ import java.util.*;
 
 public class CMysql {
     private Connection con=null;
-
-
     private Statement st=null;
    private  ResultSet rs=null;
    private ResultSetMetaData rsmd=null;
@@ -121,7 +119,8 @@ public class CMysql {
 
         }
 
-        public LinkedHashMap<String,String> existRow(int i) throws SQLException {
+        public LinkedHashMap<String,String> existRow(int i) throws Exception {
+            if(i==-1)throw new NotFondMysqlRowException("数据不存在");
             LinkedHashMap<String,String> als=new LinkedHashMap<String,String>();
             for(int j=1;j<=colum;j++) {
                 LinkedList<String> li = lh.get(rsmd.getColumnName(j));
@@ -154,4 +153,10 @@ public class CMysql {
        }
     }
 
+    }
+
+    class NotFondMysqlRowException extends Exception{
+        public NotFondMysqlRowException(String e){
+            super(e);
+        }
     }
