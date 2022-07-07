@@ -4,15 +4,6 @@ import java.sql.*;
 import java.util.*;
 
 public class CMysql {
-    public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        CMysql c=new CMysql("127.0.0.1","3306","root","0000","sx");
-        LinkedHashMap<String, LinkedList<String>> select = c.select("select * from sx_use where id<10");
-        System.out.println(select);
-        c.upInDe("delete from sx_use where id=2");
-        c.flush("sx_use");
-        c.selectAll("select * from sx_use where id<10");
-        System.out.println(c.existRow(c.isExist("yh","200001")));;
-    }
     private Connection con=null;
 
 
