@@ -37,11 +37,11 @@ public class CMysql {
 
     public CMysql(String adress, String port, String username, String password, String database) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
-        con=DriverManager.getConnection("jdbc:mysql://"+adress+":"+port+"/"+database+"?serverTimezone=GMT",username,password);
+        con=DriverManager.getConnection("jdbc:mysql://"+adress+":"+port+"/"+database+"?serverTimezone=GMT&characterEncoding=UTF-8",username,password);
     }
     public CMysql(String adress,String port,String username,String password,String database,String time) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.cj.jdbc.Driver");
-        con=DriverManager.getConnection("jdbc:mysql://"+adress+":"+port+"/"+database+"?serverTimezone="+time,username,password);
+        con=DriverManager.getConnection("jdbc:mysql://"+adress+":"+port+"/"+database+"?serverTimezone="+time,+"&characterEncoding=UTF-8"+username,password);
     }
 
     public LinkedHashMap<String, LinkedList<String>> select(String sql) throws SQLException {
